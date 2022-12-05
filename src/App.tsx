@@ -21,6 +21,12 @@ const Button3: React.FC<ButtonProps> = ({ children }) => {
   return <button>{children}</button>;
 };
 
+// アロー関数 + satisfiesで制約を加えつつ正確な型を表現する。
+// 安全だが関数本体をカッコで囲む必要がある。また TypeScript 4.9 時点では定義元ジャンプもワンクッションあり。
+const Button4 = (({ children }) => {
+  return <button>{children}</button>;
+}) satisfies React.FC<ButtonProps> ;
+
 export default function App() {
   return (
     <div>
@@ -31,6 +37,7 @@ export default function App() {
       <Button1>Click me!</Button1>
       <Button2>Click me!</Button2>
       <Button3>Click me!</Button3>
+      <Button4>Click me!</Button4>
     </div>
   );
 }
