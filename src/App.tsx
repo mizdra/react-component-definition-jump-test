@@ -25,7 +25,7 @@ const Button3: React.FC<ButtonProps> = ({ children }) => {
 // 安全だが関数本体をカッコで囲む必要がある。また TypeScript 4.9 時点では定義元ジャンプもワンクッションあり。
 const Button4 = (({ children }) => {
   return <button>{children}</button>;
-}) satisfies React.FC<ButtonProps> ;
+}) satisfies React.FC<ButtonProps>;
 
 export default function App() {
   return (
